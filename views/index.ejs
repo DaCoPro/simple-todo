@@ -7,12 +7,22 @@
   <body>
     <h1>To Do List</h1>
     <% if(todos.length === 0) { %>
-    <h3><%= "There are no To Dos Yet!" %></h3>
+      <h3><%= "There are no To Dos Yet!" %></h3>
+      <% } else { %>
+      <% todos.forEach(function(t) { %>
+      <ul>
+        <li><%= t.done ? `${t.todo} - Done` : `${t.todo} - Not Done` %></li>
+      </ul>
+      <% }) %>
     <% } %>
+    <hr>
     <form action="/todos" method="POST">
-      <input type="text">
+      <input type="text" required="true" name="name">
       <input type="submit" value="ADD TO DO">
     </form>
+     
+
+    
 
     
   </body>
